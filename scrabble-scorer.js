@@ -17,18 +17,18 @@ const oldPointStructure = {
 };
 
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
-	let letterPoints = "";
- 
-	for (let i = 0; i < word.length; i++) { 
-	  for (const pointValue in oldPointStructure) { 
-		if (oldPointStructure[pointValue].includes(word[i])) {
-		letterPoints += `Points for '${word[i]}': ${pointValue}\n`
-		} 
-	}
- }
-	return letterPoints;
+  word = word.toUpperCase();
+  let letterPoints = "";
+  for (let i = 0; i < word.length; i++) {
+    for (const pointValue in oldPointStructure) {
+      if (oldPointStructure[pointValue].includes(word[i])) {
+        letterPoints += `Points for '${word[i]}'; ${pointValue}\n`
+      }
+    }
+  }
+return letterPoints;
 }
+
 
 let intro = "";
 
