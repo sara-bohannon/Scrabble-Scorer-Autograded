@@ -30,10 +30,10 @@ function oldScrabbleScorer(word) {
 }
 
 
-let intro = "";
+
 
 function initialPrompt() {
-  intro = input.question("Let's play some scrabble! Enter a word: ")
+  let intro = input.question("Let's play some scrabble! Enter a word: ");
   return intro;
 }
 
@@ -89,13 +89,13 @@ const scoringAlgorithms = [
   }
 ];
 
-function scorerPrompt() {
+function scorerPrompt(word) {
   console.log(`\nWhich scoring algorithm would you like to use?`)
   for (let i = 0; i < scoringAlgorithms.length; i++) {
     console.log(`${i} - ${scoringAlgorithms[i].name}: ${scoringAlgorithms[i].description}`)
   }
   let scoreQuestion = Number(input.question(`\nEnter 0, 1, or 2: `));
-  console.log(`Score for '${intro}': ${scoringAlgorithms[scoreQuestion].scorerFunction(intro)}`)
+  console.log(`Score for '${word}': ${scoringAlgorithms[scoreQuestion].scorerFunction(word)}`);
 }
 
 function transform(oldScoreKey) {
@@ -113,9 +113,9 @@ function transform(oldScoreKey) {
 const newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
-  initialPrompt();
-  scorerPrompt();
-};
+  let word = initialPrompt();
+  scorerPrompt(word);
+}
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
